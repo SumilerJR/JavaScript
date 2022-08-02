@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>1_ajax小试牛刀</title>
+    <style>
+        #content {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>该页面是测试：ajax小试牛刀</h3>
+    <button id="btn">点我发送请求(原生js-ajax-get)</button>
+    <div id="content"></div>
+    <script type="text/javascript">
+        const btn = document.getElementById('btn');
+        const content = document.getElementById('content');
+        btn.onclick = () => {
+            const xhr = new XMLHttpRequest();
+
+
+            xhr.onreadystatechange = () => {
+                // console.log(xhr.readyState);
+                if (xhr.readyState === 4) {
+                    console.log(xhr.response);
+                    content.innerHTML = `<h3>${xhr.response}</h3>`
+                }
+            }
+
+            // xhr.open('GET', 'http://localhost:8080/test_get');
+            xhr.open('GET', 'http://127.0.0.1:8080/test_get')
+            xhr.send();
+        }
+
+    </script>
+</body>
+
+</html>
