@@ -1,47 +1,89 @@
-// const { urlencoded } = require('express');
-const { json } = require('express');
-const express = require('express');
+//引入express
+const express = require('express')
+const cors = require('cors')
 
 //创建app实例对象
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+const app = express()
+//使用中间件解析urlencoded编码形式的请求体参数
+app.use(express.urlencoded({ extended: true }))
+//使用中间件解析json编码形式的请求体参数
+app.use(express.json())
+app.use(cors())
 
-app.use(express.static(__dirname + '/src'));
+//暴露静态资源
+app.use(express.static(__dirname + '/src'))
 
+//响应GET请求--可以接收query参数
 app.get('/test_get', (request, response) => {
-    console.log('有人请求test_get了，携带的query参数是', request.query);
-    response.send('hello_test_get!!!');
+    console.log('有人请求test_get了--携带的query参数是：', request.query);
+    /* response.setHeader('Access-Control-Allow-Origin','*')
+    response.setHeader('Access-Control-Expose-Headers','*') */
+    response.send('hello_test_get')
 })
 
+//响应GET请求--可以接收params参数
 app.get('/test_get2/:name/:age', (request, response) => {
-    console.log('有人请求test_get2了，携带的params参数是', request.params);
-    response.send('hello_test_get2');
+    console.log('有人请求test_get2了--携带的params参数是：', request.params);
+    response.send('hello_test_get2')
 })
 
+//响应get请求
 app.get('/get_person', (request, response) => {
     console.log('有人请求get_person了');
-    const person = { name: '晓飞', age: '18', sex: '女' };
-    response.send(person);
+    const person = { name: 'tom', age: 18, sex: '女' }
+    response.send(JSON.stringify(person))
 })
 
-
-app.post('/test_post', (request, response) => {
-    console.log('有人请求test_post了', request.body);
-    response.send('hello_test_post');
-})
-
+//响应get请求
 app.get('/get_person_delay', (request, response) => {
     console.log('有人请求get_person了');
-    const person = { name: 'tom', age: '18', sex: '女' };
+    const person = { name: 'tom', age: 18, sex: '女' }
     setTimeout(() => {
-        response.send(person);
+        response.send(JSON.stringify(person))
     }, 3000)
 })
 
+//响应POST请求--可以接收请求体参数
+app.post('/test_post', (request, response) => {
+    console.log('有人请求test_post了--携带的请求体参数是', request.body);
+    response.send('hello_test_post')
+})
 
+//响应get请求---jquery
+app.get('/test_jquery_get', (request, response) => {
+    console.log('有人请求test_jquery_get了', request.query);
+    const car = { name: '马自达·阿特兹', price: '25万' }
+    response.send(JSON.stringify(car))
+})
 
+//响应post请求----jquery
+app.post('/test_jquery_post', (request, response) => {
+    console.log('有人请求test_jquery_post了', request.body);
+    const car = { name: '马自达·阿特兹', price: '25万' }
+    response.send(JSON.stringify(car))
+})
 
+/* app.options('/test_put',(request,response)=>{
+    response.setHeader('Access-Control-Allow-Origin','*')
+    response.setHeader('Access-Control-Expose-Headers','*')
+    response.setHeader('Access-Control-Allow-Methods','*')
+    response.send()
+}) */
+
+app.put('/test_put', (request, response) => {
+    /* 	response.setHeader('Access-Control-Allow-Origin','*')
+        response.setHeader('Access-Control-Expose-Headers','*') */
+    response.send('hello_test_put')
+})
+
+app.get('/test_jsonp', (request, response) => {
+    const { callback } = request.query
+    console.log(callback);
+    const person = [{ name: 'tom', age: 18 }, { name: '老刘', age: 5 }]
+    response.send(`${callback}(${JSON.stringify(person)})`)
+})
+
+//监听
 app.listen(8080, (err) => {
     if (!err) {
         console.log('测试ajax请求的服务器开启成功了！测试地址如下');
@@ -54,8 +96,7 @@ app.listen(8080, (err) => {
         console.log('http://127.0.0.1:8080/7_ajax请求的异常与超时处理.html');
         console.log('http://127.0.0.1:8080/8_ajax取消请求.html');
         console.log('http://127.0.0.1:8080/9_避免多次重复请求.html');
-        console.log('http://127.0.0.1:8080/10_jquery封装的ajax.html');
+        console.log('http://127.0.0.1:8080/10_jQuery封装的ajax.html');
         console.log('http://127.0.0.1:8080/11_演示回调地狱.html');
     }
-
 })
