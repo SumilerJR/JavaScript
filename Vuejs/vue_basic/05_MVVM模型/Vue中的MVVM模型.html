@@ -11,9 +11,11 @@
 </head>
 
 <body>
+
     <!-- 准备一个容器 -->
     <div id="root">
-        <h1>Hello,{{name}}</h1>
+        <h1>学校名称,{{name}}</h1>
+        <h1>学校地址,{{address}}</h1>
     </div>
 
     <script>
@@ -21,9 +23,12 @@
 
         // 创建Vue实例
         const x = new Vue({
-            el: '#root',//
-            data: {//data中用于存储数据，数据供el所指定的容器去使用，值我们暂时先写成一个对象
-                name: 'World',
+            el: '#root',
+            data() {
+                return {
+                    name: '666大学',
+                    address: '广州',
+                }
             }
         });
 
