@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的基本使用</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- <button v-on:click="showInfo">点我提示信息</button> -->
+        <!-- 简写形式 -->
+        <button @click="showInfo1">点我提示信息1(不传参)</button>
+        <button @click="showInfo2(66, $event)">点我提示信息2(传参)</button>
+
+
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;//设置为 false 以阻止 vue 在启动时生成生产提示。
+
+        // 创建Vue实例
+        const vm = new Vue({
+            el: '#root',//el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串。
+            methods: {
+                showInfo1(event) {
+                    // console.log(event);
+                    // console.log(this);//此处的this是vm
+                    alert("同学你好!");
+                },
+                showInfo2(number, event) {
+                    // console.log(event);
+                    // console.log(this);//此处的this是vm
+                    console.log(number, event);
+                    alert("同学你好!!");
+                },
+            },
+            data() {//data中用于存储数据，数据供el所指定的容器去使用，值我们暂时先写成一个对象
+                return {
+                    name: '清华大学',
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
