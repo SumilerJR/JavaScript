@@ -11,8 +11,8 @@
 
 let fs = require('fs')
 
-fs.readFile(__dirname+'/test.mp4',function (err,data) {
+fs.readFile(__dirname+'/demo.txt',function (err,data) {
     if(err) console.log(err)
     //为什么读取出来的东西是Buffer？ 用户存储的不一定是纯文本
-    else console.log(data)
+    else console.log(data.toString())
 })

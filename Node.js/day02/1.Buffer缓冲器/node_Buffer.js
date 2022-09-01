@@ -19,6 +19,7 @@
 *       .....
 * */
 
+
 //创建一个Buffer的实例对象--------性能特别差------1.在堆里开辟空间。2.清理
 let buf = new Buffer(10)
 console.log(buf)
@@ -27,10 +28,11 @@ console.log(buf)
 let buf2 = Buffer.alloc(10)
 console.log(buf2)
 
-//创建一个Buffer的实例对象-------性能最好的-------在堆里开辟空间
+//创建一个Buffer的实例对象-------性能最好的-------在堆里开辟空间(该块空间可能留有残留)
 /*
 * 1.输出的Buffer为什么不是二进制？ ----- 输出的是16进制，但是存储的是二进制吗，输出的时候会自动转16进制。
-* 2.输出的Buffer不为空？ ----- 在堆里开辟空间，可能残留着别人用过的数据，所以allocUnsafe
+* 2.输出的Buffer不为空？ ----- 在堆里开辟空间，可能残留着别人用过的数据，所以allocUnsafe。
+*   如在申请手机号的时候，可能是全新的号码，也有可能是回收号，在网上残留别人使用过的信息
 * */
 let buf3 = Buffer.allocUnsafe(10)
 console.log(buf3)
@@ -38,6 +40,9 @@ console.log(buf3)
 // 将数据存入一个Buffer实例
 let buf4 = Buffer.from('hello atguigu')
 console.log(buf4)
+
+console.log(buf4.toString());
+
 /*
 * 1.输出的为什么不是我们曾经存入的字符串？用户存储的不一定是字符串，可能是媒体类型的文件
 * 2.如何能够让输出的东西是字符串(我们能看懂的)？toString()

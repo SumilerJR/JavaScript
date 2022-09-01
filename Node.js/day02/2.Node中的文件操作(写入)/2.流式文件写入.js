@@ -16,20 +16,20 @@
 let fs = require('fs')
 
 //创建一个可写流----水管到位了
-let ws = fs.createWriteStream(__dirname+'/demo.txt',{start:10})
+let ws = fs.createWriteStream(__dirname + '/demo2.txt', {start: 10})
 
 //只要用到了流，就必须监测流的状态
-ws.on('open',function () {
-  console.log('可写流打开了')
+ws.on('open', function () {
+    console.log('可写流打开了')
 })
-ws.on('close',function () {
-  console.log('可写流关闭了')
+ws.on('close', function () {
+    console.log('可写流关闭了')
 })
 
 //使用可写流写入数据
 ws.write('美女\n')
 ws.write('霉女？\n')
 ws.write('到底是哪一个？\n')
-//ws.close() //如果在Node的8版本中，使用此方法关闭流会造成数据丢失
+// ws.close() //如果在Node的8版本中，使用此方法关闭流会造成数据丢失
 ws.end() //在Node的8版本中，要用end方法关闭流
 
