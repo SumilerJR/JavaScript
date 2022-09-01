@@ -276,6 +276,8 @@ yarn使用本地缓存，有时甚至无需互联网连接就能安装本地已�
 	yarn config set registry https://registry.npm.taobao.org
 	npm config set registry https://registry.npm.taobao.org
 
+## Day2
+
 
 
 
