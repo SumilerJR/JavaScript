@@ -50,24 +50,24 @@
 
         btn2.click(() => {
             // 使用jQuery发送ajax - post（完整版）
-            // $.ajax({
-            //     url: 'http://127.0.0.1:8080/test_jquery_post',//请求地址
-            //     method: 'POST',//请求方式
-            //     data: { school: 'atguigu' },//携带的数据
-            //     dataType: 'json',//配置响应数据格式
-            //     timeout: 2000,
-            //     success: (result, responseText, xhr) => {
-            //         console.log(result);
-            //         content.append(`<div>汽车名：${result.name}，价格：${result.price}</div>`)
-            //     },//成功的回调
-            //     error: () => { console.log('请求出错了'); }//失败的会掉
-            // });
+            $.ajax({
+                url: 'http://127.0.0.1:8080/test_jquery_post',//请求地址
+                method: 'POST',//请求方式
+                data: { school: 'atguigu' },//携带的数据
+                dataType: 'json',//配置响应数据格式
+                timeout: 2000,
+                success: (result, responseText, xhr) => {
+                    console.log(result);
+                    content.append(`<div>汽车名：${result.name}，价格：${result.price}</div>`)
+                },//成功的回调
+                error: () => { console.log('请求出错了'); }//失败的回调
+            });
 
             // 使用jQuery发送ajax-post（精简版）
-            $.post('http://127.0.0.1:8080/test_jquery_post', { school: 'atguigu' }, (data) => {
-                console.log(data);
-                content.append(`<div>汽车名：${data.name}，价格：${data.price}</div>`)
-            }, 'json');
+            // $.post('http://127.0.0.1:8080/test_jquery_post', { school: 'atguigu' }, (data) => {
+            //     console.log(data);
+            //     content.append(`<div>汽车名：${data.name}，价格：${data.price}</div>`)
+            // }, 'json');
         });
 
     </script>
