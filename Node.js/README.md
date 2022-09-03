@@ -505,4 +505,94 @@ console.log(buf4)
     //小文件可以直接用简单文件的读写，大文件最好用流式的文件读写
     ```
     
-    
+### 4、MongoDB
+
+#### 安装
+
+安装好复杂，参考了下面两个文章总算完成了（吧）
+
+[安装MongoDB](https://blog.csdn.net/weixin_42545402/article/details/124520489)
+
+[MongoDB 6.0版安装教程及安装MongoDB提示权限不足的解决方法](https://blog.csdn.net/weixin_70319460/article/details/126436904)
+
+
+#### 常见端口号
+
+  | 端口     | 作用                |
+  | :------: | :------------------ |
+  | 21端口 | FTP 文件传输服务 |
+  | 22端口 | SSH 端口 |
+  | 23端口 | TELNET 终端仿真服务 |
+  | 25端口 | SMTP 简单邮件传输服务 |
+  | 53端口 | DNS 域名解析服务 |
+  | 80端口 | HTTP 超文本传输服务 |
+  | 110端口 | POP3 “邮局协议版本3”使用的端口 |
+  | 443端口 | HTTPS 加密的超文本传输服务 |
+  | 1433端口 | MS SQL*SERVER数据库 默认端口号 |
+  | 1521端口 | Oracle数据库服务 |
+  | 1863端口 | MSN Messenger的文件传输功能所使用的端口 |
+  | 3306端口 | MYSQL 默认端口号 |
+  | 3389端口 | Microsoft RDP 微软远程桌面使用的端口 |
+  | 5631端口 | Symantec pcAnywhere 远程控制数据传输时使用的端口 |
+  | 5632端口 | Symantec pcAnywhere 主控端扫描被控端时使用的端口 |
+  | 5000端口 | MS SQL Server使用的端口 |
+  | 27017端口 | MongoDB实例默认端口 |
+
+
+#### MongoDB基本命令
+
+1. db : 查看当前在操作哪一个数据库
+2. show dbs ：查看数据库列表（一共有几个数据库，备注：如果数据库为空，不出现在列表中）
+3. use test :切换到test数据库，如果不存在，则创建一个test库
+4. db.students.insert() ：向当前数据库的students集合中插入一个文档。
+5. show collections ：展示当前数据库中所有的集合。
+
+
+
+## Day4
+
+### 1、node原生服务器
+
+```JavaScript
+/*
+* 不借助任何第三方库，去搭建Node原生服务器
+* */
+
+//1.引入Node内置的http模块
+let http = require('http')
+//引入一个内置模块，用于解析key=value&key=value.....这种形式的字符串为js中的对象
+/*
+备注：
+  1.key=value&key=value.....的编码形式：urlencoded编码形式。
+  2.请求地址里携带urlencoded编码形式的参数，叫做：查询字符串参数(query参数)。
+* */
+//引入的qs是一个对象，该对象身上有着很多有用的方法，最具代表性的：parse()
+let qs = require('querystring')
+
+//2.创造一个“服务员” ---- 创建服务对象
+let server = http.createServer(function (request, response) {
+  //让服务员开始干活，获取客人点的菜单
+  /*
+  * (1).request:请求对象，里面包含着客户端给服务器的“东西”
+  * (2).response：响应对象，里面包含着服务器要返回给客户端的“东西”
+  * */
+  //获取客户端携带过来的urlencoded编码形式的参数
+  let params = request.url.split('?')[1] //name=zhangsan&age=18
+  //console.log(params)
+  let objParams = qs.parse(params) //
+  //console.log(objParams)
+  let { name, age } = objParams
+
+  response.setHeader('content-type', 'text/html;charset=utf-8')
+  response.end(`<h1>你好${name},你的年龄是${age}</h1>`)
+})
+
+//3.指定服务器运行的端口号(绑定端口监听)
+server.listen(3000, function (err) {
+  if (!err) console.log('服务器启动成功了', 'http://127.0.0.1:3000/');
+  else console.log(err);
+})
+```
+
+
+
