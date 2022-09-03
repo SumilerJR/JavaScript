@@ -504,7 +504,7 @@ console.log(buf4)
     
     //小文件可以直接用简单文件的读写，大文件最好用流式的文件读写
     ```
-    
+
 ### 4、MongoDB
 
 #### 安装
@@ -515,29 +515,27 @@ console.log(buf4)
 
 [MongoDB 6.0版安装教程及安装MongoDB提示权限不足的解决方法](https://blog.csdn.net/weixin_70319460/article/details/126436904)
 
-
 #### 常见端口号
 
-  | 端口     | 作用                |
+| 端口     | 作用                |
   | :------: | :------------------ |
-  | 21端口 | FTP 文件传输服务 |
-  | 22端口 | SSH 端口 |
-  | 23端口 | TELNET 终端仿真服务 |
-  | 25端口 | SMTP 简单邮件传输服务 |
-  | 53端口 | DNS 域名解析服务 |
-  | 80端口 | HTTP 超文本传输服务 |
-  | 110端口 | POP3 “邮局协议版本3”使用的端口 |
-  | 443端口 | HTTPS 加密的超文本传输服务 |
-  | 1433端口 | MS SQL*SERVER数据库 默认端口号 |
-  | 1521端口 | Oracle数据库服务 |
-  | 1863端口 | MSN Messenger的文件传输功能所使用的端口 |
-  | 3306端口 | MYSQL 默认端口号 |
-  | 3389端口 | Microsoft RDP 微软远程桌面使用的端口 |
-  | 5631端口 | Symantec pcAnywhere 远程控制数据传输时使用的端口 |
-  | 5632端口 | Symantec pcAnywhere 主控端扫描被控端时使用的端口 |
-  | 5000端口 | MS SQL Server使用的端口 |
-  | 27017端口 | MongoDB实例默认端口 |
-
+| 21端口 | FTP 文件传输服务 |
+| 22端口 | SSH 端口 |
+| 23端口 | TELNET 终端仿真服务 |
+| 25端口 | SMTP 简单邮件传输服务 |
+| 53端口 | DNS 域名解析服务 |
+| 80端口 | HTTP 超文本传输服务 |
+| 110端口 | POP3 “邮局协议版本3”使用的端口 |
+| 443端口 | HTTPS 加密的超文本传输服务 |
+| 1433端口 | MS SQL*SERVER数据库 默认端口号 |
+| 1521端口 | Oracle数据库服务 |
+| 1863端口 | MSN Messenger的文件传输功能所使用的端口 |
+| 3306端口 | MYSQL 默认端口号 |
+| 3389端口 | Microsoft RDP 微软远程桌面使用的端口 |
+| 5631端口 | Symantec pcAnywhere 远程控制数据传输时使用的端口 |
+| 5632端口 | Symantec pcAnywhere 主控端扫描被控端时使用的端口 |
+| 5000端口 | MS SQL Server使用的端口 |
+| 27017端口 | MongoDB实例默认端口 |
 
 #### MongoDB基本命令
 
@@ -546,8 +544,6 @@ console.log(buf4)
 3. use test :切换到test数据库，如果不存在，则创建一个test库
 4. db.students.insert() ：向当前数据库的students集合中插入一个文档。
 5. show collections ：展示当前数据库中所有的集合。
-
-
 
 ## Day4
 
@@ -571,28 +567,62 @@ let qs = require('querystring')
 
 //2.创造一个“服务员” ---- 创建服务对象
 let server = http.createServer(function (request, response) {
-  //让服务员开始干活，获取客人点的菜单
-  /*
-  * (1).request:请求对象，里面包含着客户端给服务器的“东西”
-  * (2).response：响应对象，里面包含着服务器要返回给客户端的“东西”
-  * */
-  //获取客户端携带过来的urlencoded编码形式的参数
-  let params = request.url.split('?')[1] //name=zhangsan&age=18
-  //console.log(params)
-  let objParams = qs.parse(params) //
-  //console.log(objParams)
-  let { name, age } = objParams
+    //让服务员开始干活，获取客人点的菜单
+    /*
+    * (1).request:请求对象，里面包含着客户端给服务器的“东西”
+    * (2).response：响应对象，里面包含着服务器要返回给客户端的“东西”
+    * */
+    //获取客户端携带过来的urlencoded编码形式的参数
+    let params = request.url.split('?')[1] //name=zhangsan&age=18
+    //console.log(params)
+    let objParams = qs.parse(params) //
+    //console.log(objParams)
+    let {name, age} = objParams
 
-  response.setHeader('content-type', 'text/html;charset=utf-8')
-  response.end(`<h1>你好${name},你的年龄是${age}</h1>`)
+    response.setHeader('content-type', 'text/html;charset=utf-8')
+    response.end(`<h1>你好${name},你的年龄是${age}</h1>`)
 })
 
 //3.指定服务器运行的端口号(绑定端口监听)
 server.listen(3000, function (err) {
-  if (!err) console.log('服务器启动成功了', 'http://127.0.0.1:3000/');
-  else console.log(err);
+    if (!err) console.log('服务器启动成功了', 'http://127.0.0.1:3000/');
+    else console.log(err);
 })
 ```
 
+### 2、get与post请求
+
+#### 前言
+
+> HTTP设定了八种发送请求方式（也称为八大“动作”）。这八种方法没有任何本质上的区别。只是让请求，更加有语义化而已。
+> 八种方法分别为：OPTIONS、HEAD、GET、POST、PUT、DELETE、TRACE、CONNECT
+> 这八种方法最终经过“岁月沉淀”后，最常用的是这两种：GET、POST
+
+#### GET
+
+    1. 含义：从指定的资源获取数据（一种“索取”的感觉）。
+    2. 什么时候使用GET请求较为合适？
+        (1)单纯获取数据的时。
+        (2)请求非敏感数据时。
+
+#### POST
+
+    1.含义：向指定的资源提交要被处理的数据（一种“交差”的感觉）。
+    2.什么时候使用POST请求较为合适？
+           (1)传送相对敏感数据时。
+           (2)请求的结果有持续性的副作用，例如：传递的数据要写入数据库时。
+    备注：使用了POST不代表的绝对的安全。
 
 
+#### 常见的GET请求：
+
+ 1.浏览器地址栏输入网址时（即浏览器请求页面时，且无法手动更改）。
+ 2.可以请求外部资源的html标签，例如：<img> <a> <link> <script>，且无法手动更改。
+ 3.发送Ajax时若没有指定发送请求的方式，则使用GET方式，或者明确指出了使用GET请求。
+ 4.form表单提交时，若没有指明方式，默认使用GET。
+
+
+#### 常见的POST请求：
+
+ 1.发送Ajax时,明确指出了使用POST方式时。
+ 2.form表单提交时明确指出使用POST方式
