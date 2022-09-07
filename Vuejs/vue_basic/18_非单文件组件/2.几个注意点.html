@@ -31,6 +31,8 @@
 		<div id="root">
 			<h1>{{msg}}</h1>
 			<school></school>
+			<!-- 可以用自闭合标签，但只能在脚手架环境下使用（否则在连续使用时只能显示一次组件） -->
+			<school/>
 		</div>
 	</body>
 
@@ -39,7 +41,7 @@
 		
 		//定义组件
 		const s = Vue.extend({
-			name:'atguigu',
+			name:'atguigu',//在创建组件的时候定义名称
 			template:`
 				<div>
 					<h2>学校名称：{{name}}</h2>	
@@ -60,7 +62,7 @@
 				msg:'欢迎学习Vue!'
 			},
 			components:{
-				school:s
+				school:s//注册组件时定义名称
 			}
 		})
 	</script>

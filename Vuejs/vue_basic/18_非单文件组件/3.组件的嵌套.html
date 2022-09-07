@@ -9,7 +9,7 @@
 	<body>
 		<!-- 准备好一个容器-->
 		<div id="root">
-			
+			//在vm里配置了template
 		</div>
 	</body>
 
@@ -40,7 +40,9 @@
 				<div>
 					<h2>学校名称：{{name}}</h2>	
 					<h2>学校地址：{{address}}</h2>	
+					<!-- 注册给谁，就在谁的组件里写那个组件标签 -->
 					<student></student>
+
 				</div>
 			`,
 			data(){
@@ -51,7 +53,7 @@
 			},
 			//注册组件（局部）
 			components:{
-				student
+				student//在组件内注册局部组件的时候，要在之前先声明
 			}
 		})
 
@@ -65,7 +67,7 @@
 			}
 		})
 		
-		//定义app组件
+		//定义app组件，app管理所有组件，属于一人（vm）之下万人（其他组件）之上
 		const app = Vue.extend({
 			template:`
 				<div>	
