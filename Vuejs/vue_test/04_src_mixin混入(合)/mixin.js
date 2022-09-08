@@ -1,6 +1,6 @@
 export const hunhe = {
 	methods: {
-		showName(){
+		showName() {
 			alert(this.name)
 		}
 	},
@@ -11,8 +11,8 @@ export const hunhe = {
 export const hunhe2 = {
 	data() {
 		return {
-			x:100,
-			y:200
+			x: 100,
+			y: 200
 		}
 	},
 }

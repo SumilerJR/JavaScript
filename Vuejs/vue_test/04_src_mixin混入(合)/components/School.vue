@@ -6,18 +6,18 @@
 </template>
 
 <script>
-	//引入一个hunhe
-	// import {hunhe,hunhe2} from '../mixin'
+//引入一个hunhe
+// import {hunhe,hunhe2} from '../mixin'
 
-	export default {
-		name:'School',
-		data() {
-			return {
-				name:'尚硅谷',
-				address:'北京',
-				x:666
-			}
-		},
-		// mixins:[hunhe,hunhe2],
-	}
+export default {
+	name: 'School',
+	data() {
+		return {
+			name: '尚硅谷',
+			address: '北京',
+			x: 666
+		}
+	},
+	// mixins:[hunhe,hunhe2],
+}
 </script>
