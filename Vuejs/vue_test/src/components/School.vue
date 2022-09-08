@@ -9,8 +9,8 @@
 
 <script>
 	// 组件交互相关的代码
-	 export default {
-		name:'School',
+	export default {
+		name:'SchoolName',
 		data(){
 			return {
 				name:'尚硅谷',
