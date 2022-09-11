@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <h2>学生姓名：{{name}}</h2>
-    <h2>学生性别：{{sex}}</h2>
-    <input type="text" v-fbind:value="name">
+  <div class="test">
+    <h2 class="title">学生姓名：{{name}}</h2>
+    <h2 class="qwe">学生性别：{{sex}}</h2>
   </div>
 </template>
 
@@ -17,3 +16,12 @@ export default {
   },
 };
 </script>
+<style lang="less">
+.test {
+  background: orange;
+  .qwe {
+    font-size: 40px;
+  }
+}
+  
+</style>

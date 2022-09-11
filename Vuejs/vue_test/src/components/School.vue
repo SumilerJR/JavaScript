@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <h2>学校名称：{{name | mySlice}}</h2>
+  <div class="demo">
+    <h2>学校名称：{{name}}</h2>
     <h2>学校地址：{{address}}</h2>
-    <button @click="test">点我测试hello</button>
   </div>
 </template>
 
@@ -15,10 +14,11 @@ export default {
       address: '北京',
     };
   },
-  methods: {
-    test() {
-      this.hello();
-    }
-  }
 };
 </script>
+
+<style scoped>
+.demo {
+  background: skyblue;
+}
+</style>
