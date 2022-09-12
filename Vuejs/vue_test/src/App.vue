@@ -1,24 +1,29 @@
 <template>
-	<div>
-		<h1 class="title">你好</h1>
-		<Student></Student>
-		<School></School>
+	<div class="app">
+		<h1>{{msg}}</h1>
+		<School />
+		<Student />
 	</div>
 </template>
 
 <script>
-	//引入School组件
-	import School from "./components/School";
 	import Student from "./components/Student";
+	import School from "./components/School";
 
 	export default {
 		name: "App",
-		components: { Student, School },
+		components: { School, Student },
+		data() {
+			return {
+				msg: "你好啊！",
+			};
+		},
 	};
 </script>
 
 <style scoped>
-	.title {
-		color: red;
-	}
+.app {
+	background-color: gray;
+	padding: 5px;
+}
 </style>

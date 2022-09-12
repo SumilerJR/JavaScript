@@ -2054,6 +2054,8 @@ v-pre指令：
 3. 生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。
 4. 生命周期函数中的this指向是vm 或 组件实例对象。
 
+![](D:\DESK\JavaScript\Vuejs\images\生命周期.png)
+
 - html
 
   ```html

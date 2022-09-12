@@ -7,11 +7,9 @@ Vue.config.productionTip = false
 
 //创建vm
 new Vue({
-	el: '#app',
+	el:'#app',
 	render: h => h(App),
-	/* mounted() {
-		setTimeout(()=>{
-			this.$destroy()
-		},3000)
-	}, */
+	beforeCreate() {
+		Vue.prototype.$bus = this //安装全局事件总线，这里的bus的有一种翻译是叫“总线”
+	},
 })

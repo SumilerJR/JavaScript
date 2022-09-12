@@ -8,28 +8,28 @@
 
 <script>
 	export default {
-		name: "Student",
+		name:'Student',
 		data() {
 			return {
-				name: "张三",
-				sex: "男",
-			};
+				name:'张三',
+				sex:'男',
+			}
 		},
 		mounted() {
 			// console.log('Student',this.x)
 		},
 		methods: {
-			sendStudentName() {
-				this.$bus.$emit("hello", this.name);
-			},
+			sendStudentName(){
+				this.$bus.$emit('hello',this.name)
+			}
 		},
-	};
+	}
 </script>
 
 <style lang="less" scoped>
-.student {
-	background-color: pink;
-	padding: 5px;
-	margin-top: 30px;
-}
+	.student{
+		background-color: pink;
+		padding: 5px;
+		margin-top: 30px;
+	}
 </style>

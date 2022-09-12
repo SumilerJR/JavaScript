@@ -8,25 +8,25 @@
 
 <script>
 	export default {
-		name:'School',
-		props:['getSchoolName'],
+		name: "School",
+		props: ["getSchoolName"],
 		data() {
 			return {
-				name:'尚硅谷',
-				address:'北京',
-			}
+				name: "尚硅谷",
+				address: "北京",
+			};
 		},
 		methods: {
-			sendSchoolName(){
-				this.getSchoolName(this.name)
-			}
+			sendSchoolName() {
+				this.getSchoolName(this.name);
+			},
 		},
-	}
+	};
 </script>
 
 <style scoped>
-	.school{
-		background-color: skyblue;
-		padding: 5px;
-	}
+.school {
+	background-color: skyblue;
+	padding: 5px;
+}
 </style>
