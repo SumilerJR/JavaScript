@@ -1,29 +1,18 @@
 <template>
-	<div class="app">
-		<h1>{{msg}}</h1>
-		<School />
-		<Student />
+	<div>
+		<Test/>
+		<Test2/>
+		<Test3/>
 	</div>
 </template>
 
 <script>
-	import Student from "./components/Student";
-	import School from "./components/School";
+	import Test from './components/Test'
+	import Test2 from './components/Test2'
+	import Test3 from './components/Test3'
 
 	export default {
-		name: "App",
-		components: { School, Student },
-		data() {
-			return {
-				msg: "你好啊！",
-			};
-		},
-	};
+		name:'App',
+		components:{Test,Test2,Test3},
+	}
 </script>
-
-<style scoped>
-.app {
-	background-color: gray;
-	padding: 5px;
-}
-</style>
