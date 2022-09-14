@@ -4,18 +4,17 @@ import Vue from 'vue';
 import App from './App.vue';
 // 引入插件
 // import vueResource from "vue-resource";
-import Vuex from 'vuex';
+import store from './store';
 //关闭Vue的生产提示
 Vue.config.productionTip = false;
 // 使用插件
 // Vue.use(vueResource);
-Vue.use(Vuex);
 
 //创建vm
 const vm = new Vue({
 	el: '#app',
 	render: h => h(App),
-	store: 'hello',
+	store: store,
 	beforeCreate() {
 		Vue.prototype.$bus = this;
 	},

@@ -13,7 +13,7 @@
 
 		methods: {},
 		mounted() {
-			console.log(this);
+			console.log("App", this);
 		},
 	};
 </script>
