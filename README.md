@@ -1,2 +1,2 @@
-# JavaScript
-JavaScript学习代码+笔记
+# 前端学习
+前端学习代码+笔记
