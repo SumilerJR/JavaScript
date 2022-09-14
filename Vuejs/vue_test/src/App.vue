@@ -1,17 +1,21 @@
 <template>
 	<div class="container">
-		<Search></Search>
-		<List></List>
+		<Count></Count>
 	</div>
 </template>
 
 <script>
 	// import axios from "axios";
-	import Search from "./components/Search";
-	import List from "./components/List";
+	import Count from "./components/Count";
 	export default {
 		name: "App",
-		components: { Search, List },
+		components: { Count },
+
 		methods: {},
+		mounted() {
+			console.log(this);
+		},
 	};
 </script>
+
+<style lang="css">
