@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>生成器</title>
 </head>
+
 <body>
-    <script>    
+    <script>
         //生成器其实就是一个特殊的函数
         //异步编程  纯回调函数  node fs  ajax mongodb
         //函数代码的分隔符
-        function * gen(){
-            // console.log(111);
+        function* gen() {
+            console.log(111);
             yield '一只没有耳朵';
             // console.log(222);
             yield '一只没有尾部';
@@ -21,7 +23,10 @@
         }
 
         let iterator = gen();
+        // console.log(iterator);
         console.log(iterator.next());
+        // console.log(iterator);
+
         console.log(iterator.next());
         console.log(iterator.next());
         console.log(iterator.next());
@@ -31,6 +36,27 @@
         //     console.log(v);
         // }
 
+
+
+        // 生成器函数:function关键字与函数名之间有一个星号 * ；函数体内部使用yield表达式
+        function* add() {
+            console.log('start');
+            // 这里的 x 不是 yield '2' 的返回值，它是下一个 next（）调用恢复执行时传入的参数值
+            let x = yield '2';                 // yield 暂停执行标志
+            console.log('one:' + x);
+            let y = yield '3';                 // yield 暂停执行标志
+            console.log('two:' + y);
+            return x + y;
+        }
+        // 返回一个遍历器对象
+        let fn = add();
+        // next() 恢复执行标志
+        console.log(fn.next());      // start      {value: '2', done: false}
+        // 当 next() 传入参数时，该参数就会被当作上一个 yield 表达式的返回值 ，即 x = 20, y = 30
+        console.log(fn.next(20));    // one:20     {value: '3', done: false}
+        console.log(fn.next(30));    // two:30     {value: '50', done: true}
+
     </script>
 </body>
+
 </html>

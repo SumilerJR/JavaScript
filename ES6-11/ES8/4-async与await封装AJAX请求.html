@@ -27,32 +27,37 @@
                         if (x.status >= 200 && x.status < 300) {
                             //成功啦
                             resolve(x.response);
-                        }else{
+                        } else {
                             //如果失败
                             reject(x.status);
                         }
                     }
-                }
-            })
+                };
+            });
         }
-    
+
         //promise then 方法测试
         // sendAJAX("https://api.apiopen.top/getJoke").then(value=>{
         //     console.log(value);
         // }, reason=>{})
-  
+
         // async 与 await 测试  axios
-        async function main(){
+        async function main() {
             //发送 AJAX 请求
-            let result = await sendAJAX("https://api.apiopen.top/getJoke");
+            // let result = await sendAJAX("https://api.apiopen.top/getJoke");
             //再次测试
-            let tianqi = await sendAJAX('https://www.tianqiapi.com/api/?version=v1&city=%E5%8C%97%E4%BA%AC&appid=23941491&appsecret=TXoD5e8P')
+            let tianqi = await sendAJAX('https://www.tianqiapi.com/api/?version=v1&city=%E5%8C%97%E4%BA%AC&appid=23941491&appsecret=TXoD5e8P');
 
             console.log(tianqi);
+            return typeof tianqi;
         }
 
-        main();
-        
+        main().then((rep) => {
+            console.log(rep);
+        }).catch((err) => {
+            console.log(err);
+        });
+
     </script>
 </body>
 

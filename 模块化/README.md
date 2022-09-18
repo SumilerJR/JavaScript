@@ -221,7 +221,7 @@
      // 统一暴露(精简版)
      export { school, person, getLaoliu };
      
-     // 同意暴露(完整版)
+     // 统一暴露(完整版)
      // export { school as a, person as b, getLaoliu as c };
      ```
    

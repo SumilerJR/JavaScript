@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>迭代器</title>
 </head>
+
 <body>
     <script>
         //声明一个数组
-        const xiyou = ['唐僧','孙悟空','猪八戒','沙僧'];
+        const xiyou = ['唐僧', '孙悟空', '猪八戒', '沙僧'];
 
         //使用 for...of 遍历数组
         // for(let v of xiyou){
@@ -23,6 +25,15 @@
         console.log(iterator.next());
         console.log(iterator.next());
         console.log(iterator.next());
+
+
+        //使用迭代
+        const items = ['one', 'two', 'three'];
+        const ite = items[Symbol.iterator]();
+        console.log(ite.next().value);
+
+
     </script>
 </body>
+
 </html>

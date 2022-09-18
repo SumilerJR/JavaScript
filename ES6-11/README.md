@@ -28,3 +28,22 @@ https://baike.baidu.com/item/browserify/16823990
 ### nodemon
 
 检测项目中的所有文件，一旦发现文件有改动，nodemon会自动重启服务
+
+
+
+## 12. Iterator（遍历器）
+
+
+
+
+
+
+
+## sync 函数
+
+ES2017 标准引入了 async 函数，使得异步操作变得更加方便。
+
+async 函数是什么？一句话，它就是 Generator 函数的语法糖。
+
+前文有一个 Generator 函数，依次读取两个文件
+

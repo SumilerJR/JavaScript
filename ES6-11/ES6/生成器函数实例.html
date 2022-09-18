@@ -22,36 +22,78 @@
         //     }, 2000);
         // }, 1000);
 
-        function one() {
-            setTimeout(() => {
-                console.log(111);
-                iterator.next();
-            }, 1000)
-        }
+        // function one() {
+        //     setTimeout(() => {
+        //         console.log(111);
+        //         iterator.next();
+        //     }, 1000)
+        // }
 
-        function two() {
-            setTimeout(() => {
-                console.log(222);
-                iterator.next();
-            }, 2000)
-        }
+        // function two() {
+        //     setTimeout(() => {
+        //         console.log(222);
+        //         iterator.next();
+        //     }, 2000)
+        // }
 
-        function three() {
-            setTimeout(() => {
-                console.log(333);
-                iterator.next();
-            }, 3000)
-        }
+        // function three() {
+        //     setTimeout(() => {
+        //         console.log(333);
+        //         iterator.next();
+        //     }, 3000)
+        // }
 
-        function* gen() {
-            yield one();
-            yield two();
-            yield three();
-        }
+        // function* gen() {
+        //     yield one();
+        //     yield two();
+        //     yield three();
+        // }
 
-        //调用生成器函数
-        let iterator = gen();
-        iterator.next();
+        // //调用生成器函数
+        // let iterator = gen();
+        // iterator.next();
+
+        //  Generator 生成器函数
+        function* objectEntries(obj) {
+            // 获取对象的所有 key 保存到数组 [name, age]
+            const propKeys = Object.keys(obj);
+            for (const propkey of propKeys) {
+                yield [propkey, obj[propkey]];
+            }
+        }
+        const obj = {
+            name: '牛肉粉',
+            age: 18
+        };
+        // 把 Generator 生成器函数赋值给对象的Symbol.iterator属性, 为该对象加上遍历器接口
+        obj[Symbol.iterator] = objectEntries;
+        console.log(obj);
+        // objectEntries(obj) 等价于 obj[Symbol.iterator](obj) 
+        for (let [key, value] of objectEntries(obj)) {
+            console.log(`${key}: ${value}`);
+        }
+        // const propKeys = Object.keys(obj);
+        // for (const propkey of propKeys) {
+        //     console.log(propkey, obj[propkey]);
+        // }
+
+        function* main() {
+            let res = yield request('https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693ff5ea653469f8bb0c29638035976');
+            console.log(res);
+            console.log('数据加载完成,可以继续操作');
+        }
+        const ite = main();
+        ite.next();
+
+        function request(url) {
+            $.ajax({
+                url,
+                method: 'get',
+                success(res) {
+                    ite.next(res);
+                }
+            });
+        }
 
     </script>
 </body>
