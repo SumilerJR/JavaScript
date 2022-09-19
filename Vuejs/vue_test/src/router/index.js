@@ -6,25 +6,33 @@ import Message from '../pages/Message';
 import News from '../pages/News';
 import Detail from '../pages/Detail';
 
-export default new VueRouter({
+const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             name: 'guanyu',
             path: '/about',
             component: About,
+            meta: { title: '关于' },
+
         },
         {
+            name: 'zhuye',
             path: '/home',
             component: Home,
+            meta: { title: '首页' },
             children: [
                 {
+                    name: 'xiaoxi',
                     path: 'message',
                     component: Message,
+                    meta: { title: '消息', isAuth: true },
                     children: [
                         {
                             name: "xiangqing",
                             path: 'detail',
                             component: Detail,
+                            meta: { title: '详情', isAuth: true },
                             // props的第一种写法，值为对象
                             // props: { a: 1, b: 'hello' }
                             //第二种写法，值为布尔值
@@ -37,10 +45,45 @@ export default new VueRouter({
                     ]
                 },
                 {
+                    name: 'xinwen',
                     path: 'news',
                     component: News,
+                    meta: { title: '新闻', isAuth: true },
+                    beforeEnter: (to, from, next) => {
+                        console.log('@@@@@@@', to, from, next);//独享路由守卫
+                        if (to.meta.isAuth) { //判断是否需要鉴权
+                            if (localStorage.getItem('school') === 'qinghua') {
+                                next();
+                            } else {
+                                alert('无权限查看！');
+                            }
+                        } else {
+                            next();
+                        }
+                    }
                 }
             ]
         }
     ]
 });
+
+//全局前置路由守卫——初始化的时候被调用、每次路由切换之前被调用
+// router.beforeEach((to, from, next) => {
+//     console.log('前置路由守卫', to, from, next);
+//     if (to.meta.isAuth) { //判断是否需要鉴权
+//         if (localStorage.getItem('school') === 'qinghua') {
+//             next();
+//         } else {
+//             alert('无权限查看！');
+//         }
+//     } else {
+//         next();
+//     }
+// });
+
+router.afterEach((to, from) => {
+    console.log('后置路由守卫', to, from);
+    document.title = to.meta.title;//在页面跳转成功之后修改页面的标题
+
+});
+export default router;

@@ -5,6 +5,8 @@
 <script>
 	export default {
 		name: "About",
+		beforeRouterEnter(to, from, next) {},
+		beforeRouterLeave(to, from, next) {},
 	};
 </script>
 
