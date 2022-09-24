@@ -15,7 +15,7 @@
    npm install babel-cli browserify -g
    npm install babel-preset-es2015
 
-3. babel编译为s5,命令如下：babe1./src-d./build
+3. babel编译为es5,命令如下：babe1./src-d./build
    browserify继续编译，命令如下：browserify,/build/app.js-o·/build/build.js
    备注：命令不要记！！我们学习的是模块化的暴露、引入语法，不是命令，以后也不敲命令。
 

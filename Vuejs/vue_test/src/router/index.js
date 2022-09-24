@@ -7,7 +7,7 @@ import News from '../pages/News';
 import Detail from '../pages/Detail';
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     routes: [
         {
             name: 'guanyu',
