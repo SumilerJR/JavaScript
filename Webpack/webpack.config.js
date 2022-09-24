@@ -12,7 +12,7 @@ module.exports = {
     entry: './src/js/app.js',//入口
     // entry: { main: './src/js/app.js' },//可以用对象写法，main是别名
     output: { //输出
-        path: path.resolve(__dirname, 'build'),//输出文件的路径
+        path: path.resolve(__dirname, 'build/js'),//输出文件的路径
         filename: 'app.js',//输出文件的名字
     },
     //module.rules中配置一个一个的loader
@@ -21,7 +21,7 @@ module.exports = {
             {
                 test: /\.css$/i,//匹配规则
                 use: [
-                    "style-loader",
+                    "style-loader",//创建style标签，将样式资源插入，添加到head中生效 
                     "css-loader"//将css文件变成commonjs模块加载到js中，里面的内容是样式字符串
                 ],//使用两个loader，后面的loader先执行
             },
