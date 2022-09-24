@@ -5,7 +5,8 @@
 
 //引入Node中一个内置的path模块，专门用于结局路径问题
 const path = require('path');
-
+//引入html-webpack-plugin插件，用于加工html文件
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 //css相关loader的配置(可以用来写复用的loader)
@@ -17,8 +18,8 @@ module.exports = {
     entry: './src/js/app.js',//入口
     // entry: { main: './src/js/app.js' },//可以用对象写法，main是别名
     output: { //输出
-        path: path.resolve(__dirname, 'build/js'),//输出文件的路径
-        filename: 'app.js',//输出文件的名字
+        path: path.resolve(__dirname, 'build'),//输出文件的路径
+        filename: 'js/app.js',//输出文件的名字
     },
     //module.rules中配置一个一个的loader
     module: {
@@ -42,4 +43,6 @@ module.exports = {
             },
         ],
     },
+    //plugins中专门用于配置插件，插件必须经过实例化这一环节
+    plugins: [new HtmlWebpackPlugin()],
 };
