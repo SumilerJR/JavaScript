@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../build/js/app.js"></script>
+    <!-- html-webpack-plugin会自动引入，自己不用再写了，否则会导致重复 -->
+    <!-- <script type="text/javascript" src="../build/js/app.js"></script> -->
     <!-- 不要在html里引入css -->
     <!-- <link rel="stylesheet" href="./css/demo.css"> -->
     <title>webpack</title>
 </head>
 
 <body>
-    <div class="title">
-        hello
-    </div>
-    <div class="info">
-        world
-    </div>
-
+    <div class="title">hello</div>
+    <div class="info">world</div>
+    <div id="vue"></div>
+    <div id="react"></div>
 </body>
 
 </html>

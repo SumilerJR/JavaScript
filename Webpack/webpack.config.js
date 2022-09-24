@@ -41,8 +41,25 @@ module.exports = {
                     "less-loader"//将less文件转为css文件
                 ],//使用两个loader，后面的loader先执行
             },
+            //配置解析《样式》中的图片（只是样式中的！）
+            {
+                test: /\.(png|jpg|gif|bmp)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        outputPath: 'imgs',//配置图片加工后存放的位置
+                        //publicPath: '/build/imgs'//配置图片引入时前缀路径
+                        esModule: false,//背景图片显示background-image: url([object Module])
+                        name: '[hash:5].[ext]',//配置生成图片的名字+后缀
+                        limit: 8 * 1024,//图片大小小于8kb时将图片转为base64编码
+                    }
+                }],
+            },
         ],
     },
     //plugins中专门用于配置插件，插件必须经过实例化这一环节
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new HtmlWebpackPlugin({
+        template: './src/index.html'
+    })],
+
 };
