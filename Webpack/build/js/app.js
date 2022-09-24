@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/css/demo2.less":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/css/demo2.less ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".info {\\n  background-color: green;\\n  color: #a81a1a;\\n  font-size: 40px;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/css/demo2.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/css/demo.css":
 /*!****************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/css/demo.css ***!
@@ -133,6 +144,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 /***/ }),
 
+/***/ "./src/css/demo2.less":
+/*!****************************!*\
+  !*** ./src/css/demo2.less ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_demo2_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./demo2.less */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/css/demo2.less\");\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_demo2_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_demo2_less__WEBPACK_IMPORTED_MODULE_1__);\n\n            \n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_demo2_less__WEBPACK_IMPORTED_MODULE_1___default.a, options);\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_demo2_less__WEBPACK_IMPORTED_MODULE_1___default.a.locals || {});\n\n//# sourceURL=webpack:///./src/css/demo2.less?");
+
+/***/ }),
+
 /***/ "./src/js/app.js":
 /*!***********************!*\
   !*** ./src/js/app.js ***!
@@ -141,7 +164,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module1 */ \"./src/js/module1.js\");\n/* harmony import */ var _module2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module2 */ \"./src/js/module2.js\");\n/* harmony import */ var _module3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module3 */ \"./src/js/module3.js\");\n/* harmony import */ var _json_test_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../json/test.json */ \"./src/json/test.json\");\nvar _json_test_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../json/test.json */ \"./src/json/test.json\", 1);\n/* harmony import */ var _css_demo_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../css/demo.css */ \"./src/css/demo.css\");\n/**\r\n * app.js是webpack的入口，所有外部文件(js、json、css、less等等)都需要在这里引入使用\r\n */\r\n\r\n\r\n\r\n\r\n// ES6模块化对于JSON文件是默认暴露，JSON文件无需写暴露语法，自动为默认暴露\r\n\r\n\r\n// 引入css\r\n//ERROR:You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\r\n\r\n\r\n\r\n\r\nObject(_module1__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(1, 2);\r\nObject(_module1__WEBPACK_IMPORTED_MODULE_0__[\"sub\"])(3, 4);\r\nconsole.log(_module2__WEBPACK_IMPORTED_MODULE_1__[\"data\"]);\r\nconsole.log(_module2__WEBPACK_IMPORTED_MODULE_1__[\"message\"]);\r\nconsole.log(_module3__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\r\n\r\n// webpack不会将es6转为es5，只能进行模块化处理，即不会干babel的活\r\nconst a = () => {\r\n    console.log('@2022年9月24日@');\r\n};\r\nconst { address } = _module3__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n\r\nconsole.log(_json_test_json__WEBPACK_IMPORTED_MODULE_3__);\r\n\n\n//# sourceURL=webpack:///./src/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module1 */ \"./src/js/module1.js\");\n/* harmony import */ var _module2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module2 */ \"./src/js/module2.js\");\n/* harmony import */ var _module3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module3 */ \"./src/js/module3.js\");\n/* harmony import */ var _json_test_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../json/test.json */ \"./src/json/test.json\");\nvar _json_test_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../json/test.json */ \"./src/json/test.json\", 1);\n/* harmony import */ var _css_demo_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../css/demo.css */ \"./src/css/demo.css\");\n/* harmony import */ var _css_demo2_less__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../css/demo2.less */ \"./src/css/demo2.less\");\n/**\r\n * app.js是webpack的入口，所有外部文件(js、json、css、less等等)都需要在这里引入使用\r\n */\r\n\r\n\r\n\r\n\r\n// ES6模块化对于JSON文件是默认暴露，JSON文件无需写暴露语法，自动为默认暴露\r\n\r\n\r\n// 引入css\r\n//ERROR:You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\r\n\r\n\r\n\r\n\r\n\r\nObject(_module1__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(1, 2);\r\nObject(_module1__WEBPACK_IMPORTED_MODULE_0__[\"sub\"])(3, 4);\r\nconsole.log(_module2__WEBPACK_IMPORTED_MODULE_1__[\"data\"]);\r\nconsole.log(_module2__WEBPACK_IMPORTED_MODULE_1__[\"message\"]);\r\nconsole.log(_module3__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\r\n\r\n// webpack不会将es6转为es5，只能进行模块化处理，即不会干babel的活\r\nconst a = () => {\r\n    console.log('@2022年9月24日@');\r\n};\r\nconst { address } = _module3__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n\r\nconsole.log(_json_test_json__WEBPACK_IMPORTED_MODULE_3__);\r\n\n\n//# sourceURL=webpack:///./src/js/app.js?");
 
 /***/ }),
 
