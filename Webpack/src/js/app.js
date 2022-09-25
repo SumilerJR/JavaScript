@@ -12,7 +12,7 @@ import json from '../json/test.json';
 //ERROR:You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
 import '../css/demo.css';
 import '../css/demo2.less';
-
+import '../css/iconfont.css';
 
 
 sum(1, 2);

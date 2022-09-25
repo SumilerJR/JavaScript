@@ -1,5 +1,5 @@
 .info {
-  background-color: green;
+  background-color: pink;
   color: #a81a1a;
   font-size: 40px;
 }
@@ -14,4 +14,7 @@
   height: 200px;
   background-size: 100%;
   background-image: url('../imgs/react.png');
+}
+img {
+  width: 200px;
 }

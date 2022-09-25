@@ -55,11 +55,35 @@ module.exports = {
                     }
                 }],
             },
+            //配置解析html中的图片
+            {
+                test: /\.html$/i,
+                loader: ["html-loader"],
+            },
+            //配置解析字体文件
+            {
+                exclude: /\.(html|css|less|js|png|jpg|bmp|gif|json)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'media',//配置图片加工后存放的位置
+                        esModule: false,//背景图片显示background-image: url([object Module])
+                        name: '[hash:5].[ext]',//配置生成图片的名字+后缀
+                    }
+                }],
+            },
         ],
     },
     //plugins中专门用于配置插件，插件必须经过实例化这一环节
     plugins: [new HtmlWebpackPlugin({
         template: './src/index.html'
     })],
+
+    //和五大核心概念是平级的
+    devServer: {
+        port: 5000,//开启服务器的端口号
+        open: true,//自动打开浏览器
+        hot: true,//开启模块热更新（热模替换）
+    }
 
 };
