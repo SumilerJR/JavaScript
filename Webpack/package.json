@@ -4,7 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config ./config/webpack.dev.js",
+    "build" : "webpack --config ./config/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,7 @@
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^4.5.2",
     "less-loader": "^7.3.0",
+    "mini-css-extract-plugin": "^1.6.2",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",

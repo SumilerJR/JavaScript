@@ -14,7 +14,7 @@ function (exports, require, module, __filename, __dirname) {}
 
 - module：用于支持CommonJs模块化规范的暴露语法
 
-- \__filename：当前运行文件的绝对路径__
+- \__filename：当前运行文件的绝对路径
 
 - dirname：当前运行文件所在文件夹的绝对路径
 
